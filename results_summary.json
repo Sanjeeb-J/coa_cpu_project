@@ -1,0 +1,38 @@
+{
+    "matrix_mult": {
+        "TimingSimpleCPU": {
+            "IPC": 0.28272,
+            "Sim Ticks": 4266375000.0,
+            "DCache Misses": 1692.0
+        },
+        "O3CPU": {
+            "IPC": 1.641888,
+            "Sim Ticks": 734623000.0,
+            "DCache Misses": 2761.0
+        }
+    },
+    "branch_heavy": {
+        "TimingSimpleCPU": {
+            "IPC": 0.342216,
+            "Sim Ticks": 19902725000.0,
+            "DCache Misses": 901.0
+        },
+        "O3CPU": {
+            "IPC": 1.641651,
+            "Sim Ticks": 4148878000.0,
+            "DCache Misses": 1944.0
+        }
+    },
+    "memory_stride": {
+        "TimingSimpleCPU": {
+            "IPC": 0.143476,
+            "Sim Ticks": 23360492000.0,
+            "DCache Misses": 136112.0
+        },
+        "O3CPU": {
+            "IPC": 0.209433,
+            "Sim Ticks": 16003462000.0,
+            "DCache Misses": 141303.0
+        }
+    }
+}

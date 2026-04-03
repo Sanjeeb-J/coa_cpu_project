@@ -1,4 +1,4 @@
-# COA CPU Utilization Project — Complete Documentation
+# COA CPU Utilization Project
 
 > **Environment:** Windows 11 with WSL (Ubuntu) | **Simulator:** gem5 (X86, SE Mode)  
 > **Location:** `/home/sanjeeb/coa_cpu_project/`
@@ -6,6 +6,7 @@
 ---
 
 ## Table of Contents
+
 1. [Project Overview](#1-project-overview)
 2. [Project File Structure](#2-project-file-structure)
 3. [Source Code (All Files)](#3-source-code-all-files)
@@ -24,28 +25,28 @@ This project uses the **gem5 cycle-accurate CPU simulator** to investigate how d
 
 ### What Is Being Compared?
 
-| CPU Model | Type | Description |
-|---|---|---|
-| `TimingSimpleCPU` | **In-Order** | Executes one instruction fully before the next. Simple but slow. |
-| `O3CPU` | **Out-of-Order (OoO)** | Can execute multiple instructions simultaneously, reordering them to hide latency. |
+| CPU Model         | Type                   | Description                                                                        |
+| ----------------- | ---------------------- | ---------------------------------------------------------------------------------- |
+| `TimingSimpleCPU` | **In-Order**           | Executes one instruction fully before the next. Simple but slow.                   |
+| `O3CPU`           | **Out-of-Order (OoO)** | Can execute multiple instructions simultaneously, reordering them to hide latency. |
 
 ### Three Workloads (Benchmarks)
 
-| Benchmark | What It Stresses |
-|---|---|
-| `matrix_mult` | Compute pipeline — heavy integer/FP operations, predictable memory |
-| `branch_heavy` | Branch predictor — many unpredictable conditional jumps |
+| Benchmark       | What It Stresses                                                     |
+| --------------- | -------------------------------------------------------------------- |
+| `matrix_mult`   | Compute pipeline — heavy integer/FP operations, predictable memory   |
+| `branch_heavy`  | Branch predictor — many unpredictable conditional jumps              |
 | `memory_stride` | Memory/Cache system — large array striding that thrashes L1/L2 cache |
 
 ### System Configuration (set in `simulate.py`)
 
-| Component | Setting |
-|---|---|
-| Clock | 1 GHz |
-| Memory | 512 MB DDR3-1600 |
-| L1 Instruction Cache | 16 KB, 2-way associative |
-| L1 Data Cache | 64 KB, 2-way associative |
-| L2 Cache | 256 KB, 8-way associative |
+| Component            | Setting                   |
+| -------------------- | ------------------------- |
+| Clock                | 1 GHz                     |
+| Memory               | 512 MB DDR3-1600          |
+| L1 Instruction Cache | 16 KB, 2-way associative  |
+| L1 Data Cache        | 64 KB, 2-way associative  |
+| L2 Cache             | 256 KB, 8-way associative |
 
 ---
 
@@ -501,6 +502,7 @@ if __name__ == "__main__":
 ## 5. Understanding stats.txt
 
 Each `stats.txt` provides:
+
 - `simTicks`: Total simulated time.
 - `system.cpu.ipc`: Efficiency of instructions per cycle.
 - `system.cpu.dcache.overallMisses::total`: Reliability of cache hierarchy.
